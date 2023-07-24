@@ -32,6 +32,6 @@ void swapnodes(listint_t **list, listint_t *node1, listint_t *node2);
 void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void merge(int *array, int *left, int left_size, int *right, int right_size);
-void print_merge_step(int *left, size_t leftsize, size_t rightsize, int *right);
+void print_merge_step(int *left, size_t leftsize, size_t rightsize, int *righ);
 
 #endif
