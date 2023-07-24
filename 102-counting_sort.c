@@ -11,7 +11,7 @@ void counting_sort(int *array, size_t size)
 	int max = 0, *count_arr, j;
 	size_t i, index;
 
-	for ( i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		if (array[i] > max)
 		{
@@ -36,11 +36,16 @@ void counting_sort(int *array, size_t size)
 	{
 	array[index] = j;
 	index++;
-        count_arr[j]--;
+	count_arr[j]--;
 	}
 	}
 	free(count_arr);
 }
+/**
+ * print - prints the counting array
+ * @array: the counting array
+ * @size: size of the array
+ */
 void print(const int *array, size_t size)
 {
 	size_t i;
@@ -48,7 +53,8 @@ void print(const int *array, size_t size)
 	for (i = 0; i < size; i++)
 	{
 	printf("%d", array[i]);
-	if (i < size - 1) {
+	if (i < size - 1)
+	{
 	printf(", ");
 	}
 	}
