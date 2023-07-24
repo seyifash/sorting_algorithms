@@ -73,7 +73,7 @@ void merge(int *array, int *left, int left_size, int *right, int right_size)
  * @right: the right portio of the array
  *
  */
-void print_merge_step(int *left, size_t leftsize, size_t rightsize, int *righ)
+void print_merge_step(int *left, size_t leftsize, size_t rightsize, int *right)
 {
 	size_t i, j;
 
