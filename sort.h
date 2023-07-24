@@ -33,5 +33,7 @@ void cocktail_sort_list(listint_t **list);
 void merge_sort(int *array, size_t size);
 void merge(int *array, int *left, int left_size, int *right, int right_size);
 void print_merge_step(int *left, size_t leftsize, size_t rightsize, int *righ);
+void counting_sort(int *array, size_t size);
+void print(const int *array, size_t size);
 
 #endif
