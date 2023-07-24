@@ -13,6 +13,8 @@ void shell_sort(int *array, size_t size)
 	int temp;
 	size_t gap = 1;
 
+	if (size <= 1)
+	return;
 	while (gap <= size / 3)
 	{
 		gap = gap * 3 + 1;
@@ -23,14 +25,14 @@ void shell_sort(int *array, size_t size)
 	{
 	temp = array[i];
 	j = i;
-	while (j > gap - 1 && array[j - gap] >= temp)
+	while (j >= gap && array[j - gap] > temp)
 	{
 		array[j] = array[j - gap];
-		j = j - gap;
+		j -= gap;
 	}
 	array[j] = temp;
 	}
-	gap = gap / 3;
+	gap = (gap - 1) / 3;
 	print_array(array, size);
 	}
 }
