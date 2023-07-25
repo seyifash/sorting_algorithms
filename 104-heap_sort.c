@@ -1,10 +1,10 @@
 #include "sort.h"
 
 /**
- * siftDown - 
- *
- *
- *
+ * siftDown - implements the siftdown method
+ * @array: the array to be sorted
+ * @root: the root of the array
+ * @last: the last
  *
  */
 void siftDown(int *array, size_t root, size_t last)
@@ -37,9 +37,9 @@ void siftDown(int *array, size_t root, size_t last)
 }
 
 /**
- *
- *
- *
+ * heap_sort - implements the heap sort algorithms
+ * @array: the array
+ * @size: the size of the array
  *
  */
 void heap_sort(int *array, size_t size)
