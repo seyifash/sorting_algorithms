@@ -1,77 +1,66 @@
 #include "sort.h"
+
 /**
- * swaps - swap the array
- * @a: value to swap
- * @b: value to swap
+ * siftDown - 
+ *
+ *
+ *
  *
  */
-void swaps(int *a, int *b)
+void siftDown(int *array, size_t root, size_t last)
 {
+	size_t bigger = 2 * root + 1;
 	int temp;
+	size_t i;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-/**
- * sift_down - sift the array
- * @array: the array
- * @root: tye root
- * @size; size of the array
- */
-void sift_down(int *array, size_t root, size_t size)
-{
-	size_t max_child;
-
-	while (2 * root + 1 < size)
+	while (bigger <= last)
 	{
-	max_child = 2 * root + 1;
-
-        if (max_child + 1 < size && array[max_child] < array[max_child + 1])
+	if (bigger < last && array[bigger + 1] > array[bigger])
 	{
-	max_child++;
+	bigger++;
 	}
-
-        if (array[root] >= array[max_child])
+	if (array[root] >= array[bigger])
 	{
 	break;
 	}
-
-	swaps(&array[root], &array[max_child]);
-	print_array(array, size);
-	root = max_child;
-	}
-}
-/**
- * heapify - helper function
- * @array: the array
- * @size:  the size
- *
- */
-void heapify(int *array, size_t size)
-{
-	size_t i;
-
-	for (i = size / 2; i > 0; i--) 
+	temp = array[root];
+	array[root] = array[bigger];
+	array[bigger] = temp;
+	root = bigger;
+	bigger = 2 * root + 1;
+	for (i = 0; i <= last; i++)
 	{
-	sift_down(array, i - 1, size);
+	printf("%d ", array[i]);
+	}
+	printf("\n");
 	}
 }
+
 /**
- * heap_sort - help function
- * @array: the array
- * @size: the size of the array
+ *
+ *
+ *
+ *
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t i;
+	size_t h, k, i;
+	int temp;
 
-	heapify(array, size);
-
-	for (i = size - 1; i > 0; i--) {
-        swaps(&array[0], &array[i]);
-        print_array(array, size);
-
-        sift_down(array, 0, i);
+	for (h = size / 2; h > 0; h--)
+	{
+	siftDown(array, h - 1, size - 1);
+	}
+	for (k = size; k > 1; k--)
+	{
+	temp = array[k - 1];
+	array[k - 1] = array[0];
+	array[0] = temp;
+	siftDown(array, 0, k - 2);
+	for (i = 0; i < k - 1; i++)
+	{
+	printf("%d ", array[i]);
+	}
+	printf("\n");
 	}
 }
